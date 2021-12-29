@@ -2,16 +2,22 @@ package com.gambler;
 
 public class Gambler {
     public static int INITIAL_STAKE = 100;
-    public static int BET_AMOUNT = 0;
+    public static int BET_AMOUNT = 1;
     public static void main(String[] args) {
         System.out.println("Welcome to gambler simulation");
         System.out.println("initial amount is "+INITIAL_STAKE +" Daily bet amount "+BET_AMOUNT);
-        double randomNumber = Math.random();
-        System.out.println("Random number is :" +randomNumber);
-        if (randomNumber>0.5){
-            System.out.println("gambler won the bet");
-        }else {
-            System.out.println("gambler lose the bet");
+        int totalAmount=INITIAL_STAKE;
+        while (totalAmount<=150 && totalAmount>=50){
+            double randomNumber = Math.random();
+            System.out.println("Random number is :" +randomNumber);
+            if (randomNumber>0.5){
+                System.out.println("gambler won the bet total amount is " +totalAmount);
+                totalAmount+=BET_AMOUNT;
+            }else {
+                System.out.println("gambler lose the bet total amount is " +totalAmount);
+                totalAmount -= BET_AMOUNT;
+            }
         }
+        System.out.println("Gambler resign the bet after that he has total amount " +totalAmount);
     }
 }
