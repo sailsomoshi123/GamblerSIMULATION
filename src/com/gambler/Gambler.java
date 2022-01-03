@@ -9,7 +9,11 @@ public class Gambler {
         int allAmount=100;
         int minStack=(allAmount*50)/100;
         int maxStack=allAmount+minStack;
-        for (int i=1; i<21;i++) {
+        int winCount=0;
+        int lostCount=0;
+        int winAmount=0;
+        int lostAmount=0;
+        for (int i=1; i<=31;i++) {
             int totalAmount = INITIAL_STAKE;
             while (totalAmount < maxStack && totalAmount > minStack) {
                 double randomNumber = Math.random();
@@ -25,10 +29,16 @@ public class Gambler {
             System.out.println(i + " day Gambler resign the bet after that he has total amount " + totalAmount);
             if (totalAmount == maxStack) {
                 System.out.println("total amount won at " +i +" is " +(totalAmount-INITIAL_STAKE));
+                winAmount+=(totalAmount-INITIAL_STAKE);
+                winCount+=1;
             }
             else {
                 System.out.println("total amount lost at " +i +" is " +(INITIAL_STAKE-totalAmount));
+                lostAmount+=(INITIAL_STAKE-totalAmount);
+                lostCount+=1;
             }
         }
+        System.out.println("you win " +winCount +" days in a month and total win amount is " +winAmount);
+        System.out.println("you lost " +lostCount +" days in a month and total lost amount is " +lostAmount);
     }
 }
