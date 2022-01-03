@@ -1,10 +1,14 @@
 package com.gambler;
-import java.util.Arrays;
+import  java.util.Scanner;
 
 public class Gambler {
     public static int INITIAL_STAKE = 100;
     public static int BET_AMOUNT = 1;
+
     public static void main(String[] args) {
+        gambler();
+    }
+    public static void gambler() {
         System.out.println("Welcome to gambler simulation");
         System.out.println("initial amount is " + INITIAL_STAKE + " Daily bet amount " + BET_AMOUNT);
         int allAmount = 100;
@@ -47,5 +51,14 @@ public class Gambler {
         System.out.println("you lost " + lostCount + " days in a month and total lost amount is " + lostAmount);
         System.out.println("you lukiest day is " +winDay+" you win "+winAmount);
         System.out.println("your unlukiest day is "+lostDay+" you lost " +lostAmount);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("to play again enter 1 otherwise any number to exit : ");
+        int choice = sc.nextInt();
+        if (choice==1){
+            gambler();
+        }
+        else{
+            System.out.println("you exit the game.");
+        }
     }
 }
